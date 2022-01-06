@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom'
 import { Tabs, Tab, AppBar } from '@material-ui/core'
 import MakeReservation from './MakeReservation'
 import About from './About'
@@ -9,9 +10,20 @@ import Home from './Home'
 
 const TabBar = props => {
 
-    // const { match } = props
-    // const { params } = match
-    // const { page } = params
+    const { match } = props
+    const { params } = match
+    const { page } = params
+
+    // const tabNameToIndex = {
+    //     1: "makereservation"
+    //     2: "about"
+    // }
+
+    // const indexToTabName = {
+    //     about: 0,
+    //     contact: 1
+    // }
+
     const [selectedTab, setSelectedTab] = useState(0);
 
     const handleChange = (event, newValue) => {
@@ -28,8 +40,8 @@ const TabBar = props => {
             </Tabs>
          </AppBar>
          
-         {/* {selectedTab === 0 && <Home />}
-         {selectedTab === 1 && <MakeReservation />} */}
+         {/* {selectedTab === 0 && <Home />} */}
+         {selectedTab === 1 && <MakeReservation />} 
          {selectedTab === 2 && <About />}
         </>
     )
